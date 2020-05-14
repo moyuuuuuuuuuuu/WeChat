@@ -1,0 +1,144 @@
+2020-05-06 11:31:49
+  错误级别：2
+  错误信息：fopen(runtime\log\20-05\06.log): failed to open stream: No such file or directory
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Tool\Log.php
+  错误行数：55
+
+2020-05-06 11:31:49
+  错误级别：2
+  错误信息：fwrite() expects parameter 1 to be resource, bool given
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Tool\Log.php
+  错误行数：70
+
+2020-05-06 11:31:49
+  错误级别：2
+  错误信息：fclose() expects parameter 1 to be resource, bool given
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Tool\Log.php
+  错误行数：78
+
+2020-05-06 11:32:48
+  错误级别：2
+  错误信息：mkdir(): No such file or directory
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Tool\File.php
+  错误行数：53
+
+2020-05-06 11:32:48
+  错误级别：2
+  错误信息：mkdir(): No such file or directory
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Tool\File.php
+  错误行数：53
+
+2020-05-06 11:32:48
+  错误级别：2
+  错误信息：mkdir(): No such file or directory
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Tool\File.php
+  错误行数：53
+
+2020-05-06 11:32:48
+  错误级别：2
+  错误信息：mkdir(): File exists
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Tool\File.php
+  错误行数：60
+
+2020-05-07 12:42:32
+  错误级别：8
+  错误信息：Array to string conversion
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Tool\Http.php
+  错误行数：88
+
+2020-05-07 12:42:32
+  错误级别：2
+  错误信息：array_key_exists() expects parameter 2 to be array, null given
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Logic\Material\Material.php
+  错误行数：36
+
+2020-05-07 12:42:34
+  错误级别：8
+  错误信息：Array to string conversion
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Tool\Http.php
+  错误行数：88
+
+2020-05-07 12:42:34
+  错误级别：2
+  错误信息：array_key_exists() expects parameter 2 to be array, null given
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Logic\Material\Material.php
+  错误行数：36
+
+2020-05-07 12:42:49
+  错误级别：8
+  错误信息：Array to string conversion
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Tool\Http.php
+  错误行数：88
+
+2020-05-07 12:42:49
+  错误级别：2
+  错误信息：array_key_exists() expects parameter 2 to be array, null given
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Logic\Material\Material.php
+  错误行数：36
+
+2020-05-07 12:42:49
+  错误级别：2
+  错误信息：array_key_exists() expects parameter 2 to be array, null given
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Logic\Material\Material.php
+  错误行数：55
+
+2020-05-07 12:43:00
+  错误级别：8
+  错误信息：Array to string conversion
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Tool\Http.php
+  错误行数：88
+
+2020-05-07 12:43:00
+  错误级别：2
+  错误信息：array_key_exists() expects parameter 2 to be array, null given
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Logic\Material\Material.php
+  错误行数：36
+
+2020-05-07 12:43:00
+  错误级别：2
+  错误信息：array_key_exists() expects parameter 2 to be array, null given
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Logic\Material\Material.php
+  错误行数：55
+
+2020-05-07 12:43:09
+  错误级别：8
+  错误信息：Array to string conversion
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Tool\Http.php
+  错误行数：88
+
+2020-05-07 12:43:09
+  错误级别：2
+  错误信息：array_key_exists() expects parameter 2 to be array, null given
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Logic\Material\Material.php
+  错误行数：36
+
+2020-05-07 12:43:10
+  错误级别：2
+  错误信息：array_key_exists() expects parameter 2 to be array, null given
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Logic\Material\Material.php
+  错误行数：55
+
+2020-05-07 12:44:10
+  错误级别：8
+  错误信息：Array to string conversion
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Tool\Http.php
+  错误行数：88
+
+2020-05-07 12:44:10
+  错误级别：2
+  错误信息：array_key_exists() expects parameter 2 to be array, null given
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Logic\Material\Material.php
+  错误行数：36
+
+2020-05-07 12:44:34
+  错误级别：8
+  错误信息：Array to string conversion
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Tool\Http.php
+  错误行数：88
+
+2020-05-07 12:44:34
+  错误级别：2
+  错误信息：array_key_exists() expects parameter 2 to be array, null given
+  错误文件：D:\wwwroot\WeChat\src\WeChat\Logic\Material\Material.php
+  错误行数：35
+

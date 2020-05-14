@@ -1,0 +1,20 @@
+{
+    "name": "janas/wechatapi",
+    "description": "this is a tool for the WeChat Api",
+    "require": {
+        "topthink/framework": ">=5.1",
+        "php": ">=7.2"
+    },
+    "authors": [
+        {
+            "name": "Janas",
+            "email": "janmas@126.com"
+        }
+    ],
+    "autoload":{
+        "psr-4":{
+            "WeChat\\":"src/WeChat/"
+        },
+        "files": []
+    }
+}
