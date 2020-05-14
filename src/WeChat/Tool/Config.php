@@ -45,7 +45,7 @@ class Config
         if(array_key_exists($key,self::$config)){
             return self::$config[$key];
         }
-        throw new ConfigException('配置项[' . $key . ']不存在','1000','',__FILE__,__LINE__);
+        throw new ConfigException('配置项[' . $key . ']不存在','1000',__FILE__,__LINE__);
     }
 
     /**
@@ -53,7 +53,7 @@ class Config
      * @param string $key
      * @return mixed
      */
-    public function load($key=''){
+    public function load(){
         return require dirname(__DIR__) . '/Config/config.php';
     }
 

@@ -35,8 +35,8 @@ class Log
     {
         $config = Config::instance();
         self::$logStatus = $config->get('log_status');
-        if(!self::$logStatus){
-            return true;
+        if(self::$logStatus !== true){
+            return ;
         }
         self::$log_path = $config->get('log_path');
         $log_file_max_size = $config->get('log_file_max_size');
@@ -54,9 +54,9 @@ class Log
     private function init(){
         if(!is_writable(dirname(dirname(self::$log_path)))){
             exit(self::$log_path.'的父级权限不足，不可写入，请先调整权限');
-        }
-
-        if(!is_file(self::$currentFileName)){
+        }else if(empty(self::$log_path)){
+            exit('请在配置文件中定义日志存储地址');
+        }else if(!is_file(self::$currentFileName)){
             File::touchFile(self::$currentFileName);
         }
     }
@@ -72,7 +72,7 @@ class Log
         }
         self::$handle = fopen(self::$currentFileName,'aw');
         $str = '-----------------------------------------------------------------------------------------------------------------------------------------------------' . "\r\n";
-        $str .= '[ ' . date('Y-m-d H:i:d',time()) . ' ]    ' . $_SERVER['HTTP_HOST']  . $_SERVER['SCRIPT_NAME'] . ' ' . $_SERVER['SERVER_ADDR'] . "\r\n";
+        $str .= '[ ' . date('Y-m-d H:i:s',time()) . ' ]    ' . @$_SERVER['HTTP_HOST']  . @$_SERVER['SCRIPT_NAME'] . ' ' . @$_SERVER['SERVER_ADDR'] . "\r\n";
         $str .= '[ 运行时间：' . (microtime(true)-(float)$_SERVER['REQUEST_TIME']) . 's ]  ';
         $str .= '[ 脚本路径 ] ' . $_SERVER['SCRIPT_FILENAME']."\r\n";
         if(!is_null($error)){
@@ -90,11 +90,6 @@ class Log
         fclose(self::$handle);
     }
 
-
-
-    private function closeHandle(){
-
-    }
 
     /**
      * 日志文件分片（无用）

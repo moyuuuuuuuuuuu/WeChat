@@ -18,7 +18,7 @@ class Base
 
     protected static $register = [
         'config' => Config::class,
-        'log'    => Log::class,
+        'log' => Log::class,
         'tool' => Tool::class,
     ];
 
@@ -26,8 +26,11 @@ class Base
 
     public function __construct($config=[])
     {
-        $this->register();
-        if(!empty($config)) $this->config->set($config);
+        if(version_compare(PHP_VERSION,'7.2.0','<'))  die('PHP最低版本7.2.0');
+        if(empty(self::$object)){
+            $this->register();
+            if(!empty($config)) $this->config->set($config);
+        }
     }
 
     private function register(){

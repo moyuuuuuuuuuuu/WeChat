@@ -46,7 +46,6 @@ use WeChat\Logic\Material\Material;
 use WeChat\Logic\Member\User;
 use WeChat\Logic\Member\Tags;
 use WeChat\Logic\Pay\Refund;
-use WeChat\Logic\Container;
 use WeChat\Logic\Pay\Query;
 use WeChat\Logic\Pay\Pay;
 use WeChat\Logic\Ticket;
@@ -56,14 +55,8 @@ use WeChat\Logic\Token;
 use WeChat\Logic\Menu;
 use WeChat\Logic\Test;
 
-$container = new Container();
-define('DS',DIRECTORY_SEPARATOR);
-
 try{
-//    $config = ['appid'=>'123'];
-    $image = './a.png';
-    $result = $container->get('material')->upload($image);
-//    $result = (new Material($config))->upload($image);
+    $res = (new Material())->upload('a.png');
 }catch (\WeChat\Exception\MaterialException $e){
     echo $e->getMessage();
 }
@@ -84,7 +77,6 @@ try{
     $data = [
         'out_trade_no' => '',
     ];
-//echo     $container->get('WeChat\\Logic\\Pay\\Refund')->refundquery($data);
     $res = (new Refund())->refundquery($data);
 
 }catch (\WeChat\Exception\PayException $e){
