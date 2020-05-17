@@ -39,11 +39,11 @@ class Qrcode extends Base
         }
 
         $res = json_decode(Http::post($url,json_encode($data,JSON_UNESCAPED_UNICODE)),true);
-        if($res['errcode'] != 0){
-           throw new QrcodeException('二维码生成失败',$res['errcode'],__FILE__,__LINE__);
-        }
-        return $res;
 
+        if(!array_key_exists('errcode',$res)){
+            return $res;
+        }
+        throw new QrcodeException('二维码生成失败',$res['errcode'],__FILE__,__LINE__);
     }
 
     /**
