@@ -54,14 +54,12 @@ class Config
      * @return mixed
      */
     public function load(){
-        $dir = realpath($_SERVER['DOCUMENT_ROOT']);
+        $dir = dirname(realpath($_SERVER['DOCUMENT_ROOT']));
 
-        if(is_file(dirname($dir) . DS . 'think')){
-            return require dirname($dir) . DS . 'config' . DS . 'janas-wechatapi.php';
-        }elseif(is_file($dir . DS . 'artisan')){
-               return require $dir . DS . 'config' . DS . 'janas-wechatapi.php';
+        if(is_file($dir. DS . 'think') || is_file($dir . DS . 'artisan') || is_file($dir . DS . 'yii')){
+            return require $dir . DS . 'config' . DS . 'janas-wechatapi.php';
         }else{
-            return require dirname(__DIR__) . '/Config/config.php';
+            return require dirname(__DIR__) . DS . 'Config' . DS . 'config.php';
         }
     }
 
