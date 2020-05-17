@@ -55,7 +55,7 @@ class Config
      */
     public function load(){
         $dir = dirname(realpath($_SERVER['DOCUMENT_ROOT']));
-
+        #TODO 其他框架需要自己增加判断或者直接把配置写入Config/config.php文件
         if(is_file($dir. DS . 'think') || is_file($dir . DS . 'artisan') || is_file($dir . DS . 'yii')){
             return require $dir . DS . 'config' . DS . 'janas-wechatapi.php';
         }else{
