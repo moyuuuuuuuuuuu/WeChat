@@ -2,7 +2,6 @@
     "name": "janas/wechatapi",
     "description": "this is a tool for the WeChat Api",
     "require": {
-        "topthink/framework": ">=5.1",
         "php": ">=7.2"
     },
     "authors": [
@@ -16,5 +15,6 @@
             "WeChat\\":"src/WeChat/"
         },
         "files": []
-    }
+    },
+    "license": "MIT"
 }
