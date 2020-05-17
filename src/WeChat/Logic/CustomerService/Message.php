@@ -41,7 +41,11 @@ class Message extends Base
             throw new MessageException('请传入发送的消息');
         }
         $data = $this->checkArg($msgType,$data);
-        $url = sprintf('https://api.weixin.qq.com/customservice/kfaccount/add?access_token=%s',$this->getToken());
+
+        $data['touser'] = $touser;
+        $data['msgtype'] = $msgType;
+
+        $url = sprintf('https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=%s',$this->getToken());
 
         $result = json_decode(Http::post($url,json_encode($data,JSON_UNESCAPED_UNICODE)),true);
 

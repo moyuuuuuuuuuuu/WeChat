@@ -26,7 +26,7 @@ class Account extends Base
      */
 
     public function createAccount($kf_account='',$nickname='',$password=''){
-        $url = sprintf('https://api.weixin.qq.com/customservice/kfaccount/add?access_token=%s',$this->getToken());
+        $url = sprintf(' https://api.weixin.qq.com/customservice/kfaccount/add?access_token=%s',$this->getToken());
         $data = [
             'kf_account' => $kf_account,
             'nickname' => $nickname,
