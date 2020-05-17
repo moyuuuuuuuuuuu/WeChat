@@ -7,7 +7,6 @@
 //|基类（注册默认配置）
 //+-----------------------------------------------------------
 namespace WeChat\Logic;
-
 use WeChat\Tool\Config;
 use WeChat\Tool\{Log, Http, File, Tool, Xml};
 
@@ -38,16 +37,6 @@ class Base
             if(array_key_exists($key,self::$object)){
                 continue;
             }
-            /**
-             * 是原生PHP还是框架
-             * 若是框架的话config以及log用框架的config和log
-             */
-
-            if(is_file($_SERVER['DOCUMENT_ROOT'].'/think') && ($key == 'config' || $key='log')){
-                $this->config = new \think\Config;
-                $this->log = new \think\Log;
-                continue;
-            }
 
             if(method_exists($value,'register')){
                 self::$object[$key] = $value::instance()->register();
@@ -58,6 +47,7 @@ class Base
             }
         }
     }
+
     /**
      * 获取token
      * @return mixed

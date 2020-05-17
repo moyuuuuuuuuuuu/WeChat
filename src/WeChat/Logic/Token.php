@@ -27,12 +27,14 @@ class Token extends Base
             return $token['access_token'];
         }else{
             self::$url = sprintf(self::$url,$this->config->get('appid'),$this->config->get('appsecret'));
-            $res = Http::get(self::$url);
-            $res = json_decode($res,true);
-            if(!array_key_exists('errcode',$res)){
+            $res = json_decode(Http::get(self::$url),true);
+            if(!is_null($res) &&  !array_key_exists('errcode',$res)){
                 $this->storageAccessToken($res);
                 return $res['access_token'];
             }else{
+                if(is_null($res)){
+                    throw new AccessTokenException('获取access_token异常并且微信服务器返回了空字符串可能是appid和appsecret参数有错误请排查');
+                }
                 throw new AccessTokenException($res['errmsg'],$res['errcode'],__FILE__,__LINE__);
             }
         }

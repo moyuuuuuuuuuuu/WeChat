@@ -89,9 +89,7 @@ class Http
             $defaults[CURLOPT_SSL_VERIFYHOST] = false;
         }
 
-        // curl_setopt_array($ch, (array)$options + $defaults);
         curl_setopt_array($ch, array_merge($defaults,(array)$options));
-
 
         $ret = curl_exec($ch);
         $err = curl_error($ch);
