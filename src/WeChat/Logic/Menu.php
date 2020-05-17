@@ -22,12 +22,12 @@ class Menu extends Base
      * @return bool
      * @throws \WeChat\Exception\AccessTokenException
      */
-    public function build(String $data){
+    public function build(Array $data){
         if(empty($data)){
             throw new MenuException('请传入菜单参数');
         }
         $url = sprintf('https://api.weixin.qq.com/cgi-bin/menu/create?access_token=%s',$this->getToken());
-        $res = json_decode(Http::post($url,json_encode($data)),true);
+        $res = json_decode(Http::post($url,json_encode($data,JSON_UNESCAPED_UNICODE)),true);
         if($res['errcode'] != 0){
             throw new MenuException($res['errmsg'],$res['errcode'],__FILE__,__LINE__);
         }
