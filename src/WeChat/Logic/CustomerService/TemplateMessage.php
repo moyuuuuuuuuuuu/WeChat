@@ -22,10 +22,12 @@ class TemplateMessage extends Base
      * @throws \WeChat\Exception\AccessTokenException
      */
     public function setIndustry($data){
-        $url = sprintf(' https://api.weixin.qq.com/cgi-bin/template/api_set_industry?access_token=%s',$this->getToken());
-
-        $res = Http::post($url,$data);
-        #TODO:设置行业没有返回值
+        $url = sprintf('https://api.weixin.qq.com/cgi-bin/template/api_set_industry?access_token=%s',$this->getToken());
+        $res = Http::post($url,json_encode($data));
+        if($res['errcode'] != 0){
+            throw new MessageException('',$res['errcode'],__FILE__,__LINE__);
+        }
+        return true;
     }
 
     /**
@@ -35,7 +37,12 @@ class TemplateMessage extends Base
      */
     public function getIndustry(){
         $url = sprintf('https://api.weixin.qq.com/cgi-bin/template/get_industry?access_token=%s',$this->getToken());
-        return json_decode(Http::get($url),true);
+        $res =  json_decode(Http::get($url),true);
+
+        if(array_key_exists('errcode',$res) && $res['errcode'] != 0 ){
+            throw new MessageException('',$res['errcode'],__FILE__,__LINE__);
+        }
+        return $res;
 
     }
 
@@ -64,7 +71,7 @@ class TemplateMessage extends Base
     public function getTempletList(){
         $url = sprintf('https://api.weixin.qq.com/cgi-bin/template/get_all_private_template?access_token=%s',$this->getToken());
 
-        return file_get_contents($url);
+        return json_decode(file_get_contents($url),true);
     }
 
     /**
@@ -75,7 +82,8 @@ class TemplateMessage extends Base
      */
     public function deleteTemplet($templet_id){
         $url = sprintf('https://api.weixin.qq.com/cgi-bin/template/del_private_template?access_token=%s',$this->getToken());
-        $res = json_decode(HTTP::post($url,['templet_id'=>$templet_id]),true);
+        $data = ['template_id'=>$templet_id];
+        $res = json_decode(Http::post($url,json_encode($data)),true);
         if($res['errcode'] != 0 ){
             throw new MessageException('',$res['errcode'],__FILE__,__LINE__);
         }
