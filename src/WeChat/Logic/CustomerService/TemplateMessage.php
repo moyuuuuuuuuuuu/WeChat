@@ -92,7 +92,7 @@ class TemplateMessage extends Base
      * @return mixed
      * @throws \WeChat\Exception\AccessTokenException
      */
-    public function sendMessage($data,$touser,$templetId,$url,$topcolor='FF0000'){
+    public function sendMessage($data,$touser,$templetId,$url='',$topcolor='FF0000'){
         $url = sprintf('https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=%s',$this->getToken());
 
         $templet['touser'] =  $touser;
@@ -100,7 +100,7 @@ class TemplateMessage extends Base
         $templet['topcolor'] = $topcolor;
         $templet['url'] = $url;
         $templet['template_id'] = $templetId;
-        $res = json_decode(Http::post($url,$templet),true);
+        $res = json_decode(Http::post($url,json_encode($templet)),true);
 
         if($res['errcode'] != 0 ){
             throw new MessageException('',$res['errcode'],__FILE__,__LINE__);
