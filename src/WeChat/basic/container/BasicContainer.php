@@ -7,20 +7,10 @@
 //| 
 //+-----------------------------------------------------------
 
-namespace wechat;
+namespace wechat\basic\container;
 
-use wechat\basic\help\Str;
 
-class Main
+class BasicContainer extends \Pimple\Container
 {
 
-	public function __call($instance,$args){
-		self::make($instance, $args);
-	}
-
-	public function make($name,...$args){
-		$namespace = Str::studly($name);
-		$instance = "\wechat\{$name}\Business";
-		return new $instance($args);
-	}
 }

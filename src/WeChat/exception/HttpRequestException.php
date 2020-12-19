@@ -7,20 +7,12 @@
 //| 
 //+-----------------------------------------------------------
 
-namespace wechat;
+namespace wechat\exception;
 
-use wechat\basic\help\Str;
 
-class Main
+use Throwable;
+
+class HttpRequestException extends \RuntimeException
 {
-
-	public function __call($instance,$args){
-		self::make($instance, $args);
-	}
-
-	public function make($name,...$args){
-		$namespace = Str::studly($name);
-		$instance = "\wechat\{$name}\Business";
-		return new $instance($args);
-	}
+	public function __construct( $message = "", $code = 0, Throwable $previous = null ){ parent::__construct($message, $code, $previous); }
 }
