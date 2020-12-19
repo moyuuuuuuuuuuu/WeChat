@@ -1,20 +1,21 @@
 {
-    "name": "janas/wechatapi",
+    "name": "janmas/wechatsdk",
     "description": "this is a tool for the WeChat Api",
+    "type": "library",
+    "license": "MIT",
     "require": {
         "php": ">=7.2"
     },
     "authors": [
         {
-            "name": "Janas",
+            "name": "janmas",
             "email": "janmas@126.com"
         }
     ],
     "autoload":{
         "psr-4":{
-            "WeChat\\":"src/WeChat/"
-        },
-        "files": []
+            "wechat\\": "src/wechat"
+        }
     },
-    "license": "MIT"
+    "minimum-stability": "dev"
 }
